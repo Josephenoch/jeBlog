@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function CoverImage({ title, coverImage, slug }) {
   const image = (
     <Image
-      width={2000}
+      width={1000}
       height={1000}
       alt={`Cover Image for ${title}`}
       src={coverImage?.node.sourceUrl}
