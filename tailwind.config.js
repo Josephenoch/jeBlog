@@ -11,6 +11,10 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
+        JE:{
+          red:"#FF595A",
+          blue:"#2A7DE1"
+        }
       },
       spacing: {
         28: '7rem',
@@ -31,6 +35,9 @@ module.exports = {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+      fontFamily:{
+        roboto:"'Roboto', sans-serif;"
+      }
     },
   },
   plugins: [],

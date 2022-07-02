@@ -9,7 +9,7 @@ export default function Alert({ preview }) {
         'bg-accent-1 border-accent-2': !preview,
       })}
     >
-        <div className="py-2 text-center text-sm">
+        <div className="text-center text-sm">
           {preview && (
             <>
               This is a page preview.{' '}

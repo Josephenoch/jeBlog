@@ -6,10 +6,12 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
+        <div className="min-h-screen flex flex-col items-center font-roboto">
+          <div className="w-[85%]">
+            <Alert preview={preview} />
+            <main>{children}</main>
+          </div>
+        </div>
       <Footer />
     </>
   )
