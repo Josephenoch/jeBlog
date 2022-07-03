@@ -1,29 +1,45 @@
 import Head from 'next/head'
 import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
+import MostRecentPost from '../Components/Home/MostRecentPost'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
+import Featured from '../Components/Home/Featured'
 
 export default function Index({ allPosts: { edges }, preview }) {
-  const heroPost = edges[0]?.node
+  const mostRecentPost = edges[0]?.node
   const morePosts = edges.slice(1)
+  console.log(morePosts)
 
   return (
     <Layout preview={preview}>
       <Head>
         <title>JEBlog ~ Home</title>
       </Head>
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.featuredImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      <section className="h-[70vh] flex">
+        {mostRecentPost && (
+            <MostRecentPost
+              title={mostRecentPost.title}
+              coverImage={mostRecentPost.featuredImage}
+              date={mostRecentPost.date}
+              slug={mostRecentPost.slug}
+              excerpt={mostRecentPost.excerpt}
+            />
+          )}
+          <div>
+            {morePosts.slice(0,3).map(arr=>{
+              return(
+                <Featured
+                title={arr.node.title}
+                coverImage={arr.node.featuredImage}
+                date={arr.node.date}
+                slug={arr.node.slug}
+                excerpt={arr.node.excerpt}
+                />
+                )
+            })}
+          </div>
+      </section>
+        
     </Layout>
   )
 }
