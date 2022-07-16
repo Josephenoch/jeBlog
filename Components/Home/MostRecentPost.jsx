@@ -1,7 +1,5 @@
 import React from 'react'
 
-import Date from '../date'
-import CoverImage from '../cover-image'
 import Link from 'next/link'
 import Image from 'next/image'
 
