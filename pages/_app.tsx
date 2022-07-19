@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import { FC } from 'react'
-import Layout from '../Layouts/ParentLayout/Layout'
+import Layout from '../layouts/ParentLayout/Layout'
 import '../styles/index.css'
 
 

@@ -1,21 +1,24 @@
 import Head from 'next/head'
-import MoreStories from '../components/more-stories'
-import MostRecentPost from '../Components/Home/MostRecentPost'
-import Layout from '../components/layout'
+import MostRecentPost from '../components/Home/MostRecentPost'
 import { getAllPostsForHome } from '../lib/api'
-import Featured from '../Components/Home/Featured'
+import Featured from '../components/Home/Featured'
+import { GetStaticProps } from 'next'
 
-export default function Index({ allPosts: { edges }, preview }) {
+interface Props{
+  preview:boolean
+  allPosts:any
+}
+
+const Index = ({ allPosts: { edges }, preview }:Props) => {
   const mostRecentPost = edges[0]?.node
   const morePosts = edges.slice(1)
-  console.log(morePosts)
 
   return (
-    <Layout preview={preview}>
+    <>
       <Head>
         <title>JEBlog ~ Home</title>
       </Head>
-      <section className="h-[70vh] flex">
+      <div className="h-[70vh] flex">
         {mostRecentPost && (
             <MostRecentPost
               title={mostRecentPost.title}
@@ -25,10 +28,11 @@ export default function Index({ allPosts: { edges }, preview }) {
               excerpt={mostRecentPost.excerpt}
             />
           )}
-          <div>
-            {morePosts.slice(0,3).map(arr=>{
+          <section>
+            {morePosts.slice(0,3).map((arr:any,index:number)=>{
               return(
                 <Featured
+                key={index}
                 title={arr.node.title}
                 coverImage={arr.node.featuredImage}
                 date={arr.node.date}
@@ -37,14 +41,17 @@ export default function Index({ allPosts: { edges }, preview }) {
                 />
                 )
             })}
-          </div>
-      </section>
-        
-    </Layout>
+          </section>
+
+          
+      </div>
+    </>     
   )
 }
 
-export async function getStaticProps({ preview = false }) {
+export default Index
+
+export const getStaticProps:GetStaticProps = async({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
 
   return {

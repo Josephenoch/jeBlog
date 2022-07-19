@@ -16,9 +16,6 @@ const MostRecentPost = ({
         {coverImage && <Image src={coverImage?.node.sourceUrl} height={400} width={780}/>}
       </div>
       <div>
-        <div className="mb-4 md:mb-0 font-bold text-gray-400">
-              <Date dateString={date} />
-        </div>
         <div>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Link href={`/posts/${slug}`}>

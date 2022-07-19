@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Button from '../../GeneralComponents/Button'
-
-const Nav = () => {
+const Nav:FC = () => {
   return (
     <nav className="my-4 flex items-center justify-between">
         <span className='text-5xl font-bold'>

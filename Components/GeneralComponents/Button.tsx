@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 
 interface Props{
-  onClick():void,
+  onClick?():void,
   children:ReactNode|string|number
 }
 

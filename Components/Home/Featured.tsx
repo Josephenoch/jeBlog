@@ -9,7 +9,6 @@ const Featured = ({
     excerpt,
     slug,
   }) => {
-    console.log(coverImage)
   return (
     <section className="h-[30%] flex space-x-2">
         {/* <Image src={coverImage?.node.sourceUrl} height={100} width={100}/> */}
@@ -22,11 +21,9 @@ const Featured = ({
               />
             </Link>
         </h3>
-        <div className="mb-4 md:mb-0 font-bold text-gray-400">
-              <Date dateString={date} />
-        </div>
         </aside>
     </section>
+     
   )
 }
 
