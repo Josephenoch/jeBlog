@@ -3,13 +3,13 @@ import MostRecentPost from '../components/Home/MostRecentPost'
 import { getAllPostsForHome } from '../lib/api'
 import Featured from '../components/Home/Featured'
 import { GetStaticProps } from 'next'
+import { IAllPosts } from '../interfaces/allPosts'
 
 interface Props{
-  preview:boolean
-  allPosts:any
+  allPosts:{edges:{node:IAllPosts}[]}
 }
 
-const Index = ({ allPosts: { edges }, preview }:Props) => {
+const Index = ({ allPosts: { edges }}:Props) => {
   const mostRecentPost = edges[0]?.node
   const morePosts = edges.slice(1)
 
@@ -23,7 +23,6 @@ const Index = ({ allPosts: { edges }, preview }:Props) => {
             <MostRecentPost
               title={mostRecentPost.title}
               coverImage={mostRecentPost.featuredImage}
-              date={mostRecentPost.date}
               slug={mostRecentPost.slug}
               excerpt={mostRecentPost.excerpt}
             />

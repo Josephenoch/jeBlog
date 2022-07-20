@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { IFeaturedImageNode } from '../../interfaces/allPosts'
 
-const MostRecentPost = ({
+interface Props{
+  title:string
+  coverImage:IFeaturedImageNode,
+  excerpt:string,
+  slug:string
+}
+
+const MostRecentPost:FC<Props> = ({
   title,
   coverImage,
-  date,
   excerpt,
   slug,
 }) => {

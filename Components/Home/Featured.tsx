@@ -1,12 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { FC } from 'react'
 
-const Featured = ({
+interface Props{
+  title:string,
+  coverImage:string,
+  date:Date,
+  excerpt:string,
+  slug:string
+}
+const Featured:FC<Props> = ({
     title,
-    coverImage,
-    date,
-    excerpt,
     slug,
   }) => {
   return (
