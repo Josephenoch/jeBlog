@@ -1,9 +1,6 @@
 import React, { FC } from 'react'
-import {FiTwitter }from "react-icons/fi"
 import socialLinks from '../../../utils/socialLinks'
 import { IconLink } from '../../GeneralComponents'
-
-
 
 
 const Nav:FC = () => {
@@ -19,7 +16,7 @@ const Nav:FC = () => {
               <IconLink 
                 link={social.link} 
                 key={social.name}
-                icon={social.icon}
+                Icon={social.icon}
               />
                 
             )
