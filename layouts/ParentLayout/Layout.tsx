@@ -8,7 +8,7 @@ interface Props{
 const Layout:FC<Props> = ({children}) => {
   return (
     <div className=" w-full flex flex-col items-center font-roboto">
-      <main className="w-[85%]">
+      <main className="w-[85%] space-y-10">
         <Nav/>
         {children}
       </main>

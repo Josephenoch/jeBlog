@@ -12,6 +12,7 @@ interface Props{
 const Featured:FC<Props> = ({
     title,
     slug,
+    excerpt
   }) => {
   return (
     <section className="h-[30%] flex space-x-2">
@@ -25,6 +26,10 @@ const Featured:FC<Props> = ({
               />
             </Link>
         </h3>
+        <div
+            className="text-sm leading-relaxed mb-4 text-gray-800"
+            dangerouslySetInnerHTML={{ __html: excerpt }}
+          />
         </aside>
     </section>
      

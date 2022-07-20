@@ -18,13 +18,15 @@ const Index = ({ allPosts: { edges }}:Props) => {
       <Head>
         <title>JEBlog ~ Home</title>
       </Head>
-      <div className="h-[70vh] flex">
+      <div className="h-[70vh] w-full flex flex-col">
         {mostRecentPost && (
             <MostRecentPost
               title={mostRecentPost.title}
               coverImage={mostRecentPost.featuredImage}
               slug={mostRecentPost.slug}
               excerpt={mostRecentPost.excerpt}
+              categories={mostRecentPost.categories.edges}
+              content={mostRecentPost.content}
             />
           )}
           <section>

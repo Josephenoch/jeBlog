@@ -3,9 +3,12 @@ export interface IAllPosts{
     excerpt:string,
     slug:string,
     date:Date,
+    categories:{
+        edges:ICategoryNode
+    }
     featuredImage:IFeaturedImageNode,
     author:IAuthorNode,
-
+    content:string
 }
 
 export interface IFeaturedImageNode{
@@ -28,4 +31,12 @@ interface IAuthor{
 
 interface IAvatar{
     url:string
+}
+
+interface ICategory{
+    name:string
+}
+
+export interface ICategoryNode{
+    node:ICategory[]
 }
